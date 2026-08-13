@@ -30,3 +30,19 @@ When reporting a vulnerability, include as much of the following as possible:
 
 If the project has a documented disclosure timeline, add it here.
 If not, keep the policy short and avoid inventing guarantees.
+
+## Known Upstream Advisories
+
+CVE-2026-44405 / GHSA-r374-rxx8-8654 (SHA-1 use in paramiko's `rsakey.py`) is
+fixed in paramiko 5.0.0, which this project cannot yet adopt: paramiko arrives
+transitively through pyinfra, and pyinfra caps it at `paramiko>=2.11,<5` — and
+`types-paramiko<5` alongside it. No published pyinfra release relaxes those
+bounds, so constraining paramiko to 5.x makes the dependency tree
+unresolvable rather than fixing anything.
+
+The exposure is limited to consumers deploying over SSH to hosts presenting
+RSA host keys. This package never imports paramiko, and its tests run against
+`@local`, which does not use it.
+
+Remove this section once pyinfra admits `paramiko>=5` and the lockfile picks
+up the fixed release.

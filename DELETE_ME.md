@@ -166,7 +166,9 @@ The release layer separates versioning from publication, deliberately:
 
    - Rewrite `README.md` for the actual package.
    - Review `CONTRIBUTING.md`.
-   - Replace `SECURITY.md` with a real policy.
+   - Replace `SECURITY.md` with a real policy. Before dropping its "Known
+     upstream advisories" section, re-check whether pyinfra now admits
+     `paramiko>=5`; if it still does not, carry the note forward.
    - Add a `LICENSE` file before publishing the repository.
 
 10. **Delete this file.**
