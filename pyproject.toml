@@ -2,6 +2,7 @@
 name = "template-pyinfra"
 version = "0.1.0"
 description = "Template repository for pyinfra plugin packages"
+readme = "README.md"
 authors = [
     { name = "Joshua Gilman", email = "joshuagilman@gmail.com" }
 ]
