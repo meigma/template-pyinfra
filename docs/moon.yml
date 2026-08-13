@@ -1,0 +1,29 @@
+# PLACEHOLDER — replaced when the MkDocs Material site lands.
+#
+# `.moon/workspace.yml` registers this project and `root:check` depends on
+# `docs:build`, so the project graph needs a `docs` project to resolve. Until the
+# real site exists, `build` is a no-op. Replacing this file with the MkDocs
+# project (mkdocs.yml, pyproject.toml, uv.lock, .python-version, docs/) wires the
+# real build into `root:check` with no change to the root configuration.
+
+language: 'python'
+layer: 'application'
+stack: 'frontend'
+tags:
+  - 'docs'
+
+project:
+  title: 'template-pyinfra docs'
+  description: 'Documentation site for the Meigma pyinfra repository template.'
+  owner: 'meigma'
+  maintainers:
+    - 'meigma'
+
+toolchains:
+  default: 'system'
+
+tasks:
+  build:
+    command: 'noop'
+    options:
+      cache: false
